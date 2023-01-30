@@ -3,16 +3,13 @@ const express = require("express");
 const dbConnection = require("./config/db");
 const cors=require("cors")
 const app = express();
-
+const userRouter=require("./Routes/user")
 // {================================================MIDDLE_WARE==============================}
 app.use(cors())
 app.use(express.json());
+app.use("/",userRouter)
 
 
-
-app.get("/",(req,res)=>{
-    res.send("I am fron Home")
-})
 
 
 app.listen(process.env.PORT, async () => {
