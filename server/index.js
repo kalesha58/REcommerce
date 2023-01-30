@@ -3,11 +3,13 @@ const express = require("express");
 const dbConnection = require("./config/db");
 const cors=require("cors")
 const app = express();
-const userRouter=require("./Routes/user")
+const userRouter=require("./Routes/userRouter")
+const authRouter=require("./Routes/authRourter")
 // {================================================MIDDLE_WARE==============================}
 app.use(cors())
 app.use(express.json());
-app.use("/",userRouter)
+app.use("/api/users",userRouter)
+app.use("/api/auth",authRouter)
 
 
 
