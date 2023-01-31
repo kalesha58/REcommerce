@@ -10,7 +10,7 @@ const authRegister = async (req, res) => {
     !email &&
     email.trim() === "" &&
     !password &&
-    password.trim() === "" 
+    password.trim() === ""
   ) {
     return res.status(422).json({ message: "Invalid Inputs" });
   }
@@ -27,6 +27,7 @@ const authRegister = async (req, res) => {
   }
   return res.status(201).json(user);
 };
+
 // {=====================================LOGIN_USER=================================}
 const authLogin = async (req, res, next) => {
   const { email, password } = req.body;
