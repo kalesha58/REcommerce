@@ -47,4 +47,33 @@ const updateUser = async (req, res, next) => {
     }
     res.status(200).json({ message: "Delete Sucessfully" });
   };
-  module.exports={updateUser,deleteUser}
+  //  {=====================================GET_USER_BY_ID=================================}
+const getUserById = async (req, res, next) => {
+  const id = req.params.id;
+  let user;
+  try {
+    user = await User.findById(id);
+  } catch (error) {
+    return console.log(error);
+  }
+  if (!user) {
+    return res.status(404).json({ message: "Invalid user Id" });
+  }
+  return res.status(200).json( user );
+};
+//  {=====================================GET_All_Users=================================}
+
+const getAllUsers = async (req, res, next) => {
+  let users;
+  try {
+    users = await User.find();
+  } catch (error) {
+    return next(error);
+  }
+  if (!users) {
+    return res.status(500).send({ message: "Unexpected Eror Occured" });
+  }
+  return res.status(200).send(users );
+};
+
+  module.exports={updateUser,deleteUser,getUserById,getAllUsers}
