@@ -4,7 +4,7 @@ import {
   FavoriteBorderOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 
 const Info = styled.div`
   opacity: 0;
