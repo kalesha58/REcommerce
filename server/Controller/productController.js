@@ -1,7 +1,7 @@
 const Product = require("../Models/Product");
 const bcrypt = require("bcryptjs");
 
-// {=====================================UPDATE_USER=================================}
+// {=====================================CREATE_PRODUCT=================================}
 
 const createProduct = async (req, res, next) => {
   const newProduct = new Product(req.body);
@@ -36,12 +36,12 @@ const deleteProduct = async (req, res, nest) => {
   } catch (error) {
     console.log(error);
   }
-  if (!user) {
+  if (!product) {
     return res.status(500).json({ message: "Something went Worng" });
   }
   res.status(200).json({ message: "Product Delete Sucessfully" });
 };
-//  {=====================================GET_USER_BY_ID=================================}
+//  {=====================================GET_Product_BY_ID=================================}
 const getProductById = async (req, res, next) => {
   const id = req.params.id;
   let product;
@@ -50,7 +50,7 @@ const getProductById = async (req, res, next) => {
   } catch (error) {
     return console.log(error);
   }
-  if (!user) {
+  if (!product) {
     return res.status(404).json({ message: "Invalid product Id" });
   }
   return res.status(200).json(product);
@@ -77,7 +77,6 @@ const getAllProducts = async (req, res, next) => {
   }
   return res.status(200).send(products);
 };
-
 
 module.exports = {
   createProduct,
