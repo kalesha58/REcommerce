@@ -8,6 +8,7 @@ const Nav = styled.div`
   height: 70px;
   margin: 10px 0;
   ${mobile({ height: "50px" })}
+
 `;
 
 const Wrapper = styled.div`
